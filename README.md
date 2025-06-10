@@ -10,8 +10,8 @@ This Python script monitors a user’s login status on the 42 intra API and send
 - Tracks a specified 42 user’s login or logout status
 - Sends macOS desktop notifications using `pync`
 - Supports two modes:
-  - `loged` — notify when user logs in
-  - `deloged` — notify when user logs out
+  - `logged` — notify when user logs in
+  - `delogged` — notify when user logs out
 - Colored terminal error messages for usage help
 
 ---
@@ -42,11 +42,16 @@ This Python script monitors a user’s login status on the 42 intra API and send
    requests
    pync
    ```
+   for **Linux**
+   ```bahs
+   requests
+   subprocess
+   ```
 
 4. Run the `launch.sh` script to setup and launch the tracker:
 
    ```bash
-   ./launch.sh <user_to_track> <loged/deloged>
+   ./launch.sh <user_to_track> <logged/delogged>
    ```
 
 This script will:
@@ -69,9 +74,9 @@ Run the tracker with:
 Arguments:
 
 - `<user_to_track>`: The 42 username to track
-- `<loged/deloged>`: Mode to track:
-  - `loged` — notify when user logs in
-  - `deloged` — notify when user logs out
+- `<logged/delogged>`: Mode to track:
+  - `logged` — notify when user logs in
+  - `delogged` — notify when user logs out
 
 ---
 
@@ -88,7 +93,7 @@ Arguments:
 If arguments are missing or invalid, the script prints a red usage message and exits:
 
 ```
-usage: ./launch.sh <user_to_track> <loged/deloged>
+usage: ./launch.sh <user_to_track> <logged/delogged>
 ```
 
 ---
