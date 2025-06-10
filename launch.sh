@@ -10,4 +10,4 @@ python3 -m pip install --upgrade pip
 echo "installing dependencies..."
 pip install -r requirements.txt
 
-python3 is_peer_loged.py
+python3 is_peer_loged.py $1 $2
