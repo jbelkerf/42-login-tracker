@@ -14,34 +14,34 @@ def get_token():
     else:
         print("Failed to get token")
         return None
-def check_loged():
+def check_logged():
     while True:
         req = get(url, headers=headers)
         user = json.loads(req.content.decode())
         
         # print(req.content.decode())
         if user['location'] == None:
-            print("not loged")
+            print("not logged")
         else:
-            notify(f"Peer login detected in {user['location']}!", title=f"the {user_to_track} loged in!")
+            notify(f"Peer loggin detected in {user['location']}!", title=f"the {user_to_track} logged in!")
             sleep(3)
-            notify(f"Peer login detected in {user['location']}!", title=f"the {user_to_track} loged in!")
+            notify(f"Peer loggin detected in {user['location']}!", title=f"the {user_to_track} logged in!")
             break 
         sleep(10)
 
-def check_deloged():
+def check_delogged():
      while True:
         req = get(url, headers=headers)
         user = json.loads(req.content.decode())
         
         # print(req.content.decode())
         if user['location'] == None:
-            notify("you mf deloged !", title=f"the {user_to_track} not loged in!")
+            notify("you mf delogged !", title=f"the {user_to_track} not logged in!")
             sleep(3)
-            notify("you mf deloged !", title=f"the {user_to_track} not loged in!")
+            notify("you mf delogged !", title=f"the {user_to_track} not logged in!")
             break
         else:
-            print("still loged...")
+            print("still logged...")
         sleep(10)
 # Read the .env file for credentials
 env = open('.env', 'r')
@@ -52,13 +52,13 @@ secret = env.readline().strip()
 token = get_token()
 
 if len(sys.argv) != 3:
-    print("\033[31musage: ./launch.sh <user_to_track> <loged/deloged>\033[0m")
+    print("\033[31musage: ./launch.sh <user_to_track> <logged/delogged>\033[0m")
     sys.exit(1)
 #get the user to track
 if sys.argv[1] != '':
     user_to_track = sys.argv[1]
 else:
-    print("\033[31musage: ./launch.sh <user_to_track> <loged/deloged>\033[0m")
+    print("\033[31musage: ./launch.sh <user_to_track> <logged/delogged>\033[0m")
     sys.exit(1)
 
 # Set the URL for the user to track
@@ -66,10 +66,10 @@ url =  f"https://api.intra.42.fr/v2/users/{user_to_track}"
 headers = {f"Authorization": f"Bearer {token}"}
 
 #set the mode of tracking loged or deloged
-if sys.argv[2] == 'loged':
-    check_loged()
-elif sys.argv[2] == 'deloged':
-    check_deloged()
+if sys.argv[2] == 'logged':
+    check_logged()
+elif sys.argv[2] == 'delogged':
+    check_delogged()
 else:
-    print("\033[31musage: ./launch.sh <user_to_track> <loged/deloged>\033[0m")
+    print("\033[31musage: ./launch.sh <user_to_track> <logged/delogged>\033[0m")
     sys.exit(1)
