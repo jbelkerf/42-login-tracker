@@ -51,11 +51,14 @@ secret = env.readline().strip()
 #Get the tpken to authenticate
 token = get_token()
 
+if len(sys.argv) != 3:
+    print("\033[31musage: ./launch.sh <user_to_track> <loged/deloged>\033[0m")
+    sys.exit(1)
 #get the user to track
 if sys.argv[1] != '':
     user_to_track = sys.argv[1]
 else:
-    print("usage: ./launch.sh <user_to_track> <loged/deloged>")
+    print("\033[31musage: ./launch.sh <user_to_track> <loged/deloged>\033[0m")
     sys.exit(1)
 
 # Set the URL for the user to track
@@ -68,5 +71,5 @@ if sys.argv[2] == 'loged':
 elif sys.argv[2] == 'deloged':
     check_deloged()
 else:
-    print("usage: ./launch.sh <user_to_track> <loged/deloged>")
+    print("\033[31musage: ./launch.sh <user_to_track> <loged/deloged>\033[0m")
     sys.exit(1)
