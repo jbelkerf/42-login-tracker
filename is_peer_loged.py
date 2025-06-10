@@ -8,9 +8,18 @@ env = open('.env', 'r')
 uid = env.readline().strip()
 secret = env.readline().strip()
 
-#curl -X POST --data "grant_type=client_credentials&client_id=MY_AWESOME_UID&client_secret=MY_AWESOME_SECRET" https://api.intra.42.fr/oauth/token
+def get_token():
+    url = "https://api.intra.42.fr/oauth/token"
+    data = {'grant_type': 'client_credentials', 'client_id': uid, 'client_secret': secret}
+    response = post(url, data=data)
+    if response.status_code == 200:
+        return response.json()['access_token']
+    else:
+        print("Failed to get token")
+        return None
 
-token = ""
+token = get_token()
+print(f"Token: {token}")
 user_to_track = 'jbelkerf'
 url =  f"https://api.intra.42.fr/v2/users/{user_to_track}"
 headers = {f"Authorization": {token}}
