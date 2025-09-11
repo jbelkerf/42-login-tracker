@@ -34,6 +34,7 @@ def check_delogged():
     while True:
         req = get(url, headers=headers)
         user = json.loads(req.content.decode())
+        # print(user)
         
         # print(req.content.decode())
         if user['location'] == None:
