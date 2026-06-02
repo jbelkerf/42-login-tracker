@@ -21,7 +21,7 @@ Instead of refreshing the intra every few minutes, you run one command and get a
 Clone the repo and enter it:
 
 ```bash
-git clone https://github.com:jbelkerf/42-login-tracker.git
+git clone https://github.com/jbelkerf/42-login-tracker.git
 cd 42-login-tracker
 ```
 
