@@ -21,7 +21,7 @@ Instead of refreshing the intra every few minutes, you run one command and get a
 Clone the repo and enter it:
 
 ```bash
-git clone git@github.com:jbelkerf/42-login-tracker.git
+git clone https://github.com:jbelkerf/42-login-tracker.git
 cd 42-login-tracker
 ```
 
@@ -77,7 +77,7 @@ On first run (and whenever your token expires), a browser window will open autom
 - Linux or macOS
 - Python 3
 - A 42 intra account (for OAuth)
-- SSH access to GitHub (for the clone step)
+
 
 ---
 
